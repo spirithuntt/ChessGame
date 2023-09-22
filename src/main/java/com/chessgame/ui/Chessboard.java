@@ -23,9 +23,9 @@ public class Chessboard extends GridPane {
                 r.setWidth(squareSize);
                 r.setHeight(squareSize);
                 if ((row + column) % 2 == 0) {
-                    r.setFill(Color.WHITE);
+                    r.setFill(Color.SEASHELL);
                 } else {
-                    r.setFill(Color.BLACK);
+                    r.setFill(Color.SIENNA);
                 }
                 add(r, column, row);
             }

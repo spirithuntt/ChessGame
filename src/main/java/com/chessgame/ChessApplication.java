@@ -106,7 +106,7 @@ public class ChessApplication extends Application {
         chessboard.addPiece(blackRook1.getRow(), blackRook1.getCol(), "rook", blackRook1.isWhite());
         Piece blackRook2 = new Bishop(7, 7, false);
         chessboard.addPiece(blackRook2.getRow(), blackRook2.getCol(), "rook", blackRook2.isWhite());
-        
+
 
         Scene scene = new Scene(chessboard);
         stage.setTitle("Chess Game");
