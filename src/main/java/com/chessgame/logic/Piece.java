@@ -1,9 +1,9 @@
 package com.chessgame.logic;
 
 public abstract class Piece {
-    int row;
-    int col;
-    boolean isWhite;
+    private int row;
+    private int col;
+    private boolean isWhite;
 
     public Piece(int row, int col, boolean isWhite) {
         this.row = row;
@@ -13,25 +13,16 @@ public abstract class Piece {
 
     public abstract boolean isValidMove(int row, int col);
 
-    //getters and setters
-    public void setRow(int row) {
-        this.row = row;
+    public int getRow() {
+        return row;
     }
 
     public int getCol() {
         return col;
     }
 
-    public void setCol(int col) {
-        this.col = col;
-    }
-
     public boolean isWhite() {
         return isWhite;
-    }
-
-    public void setWhite(boolean white) {
-        isWhite = white;
     }
 
 }
