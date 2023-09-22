@@ -10,6 +10,6 @@ public class Bishop extends Piece{
     @Override
     public boolean isValidMove(int row, int col)
     {
-        return false;
+        return true;
     }
 }

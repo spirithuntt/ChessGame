@@ -5,6 +5,14 @@ public abstract class Piece {
     private int col;
     private boolean isWhite;
 
+    public void setRow(int row) {
+        this.row = row;
+    }
+
+    public void setCol(int col) {
+        this.col = col;
+    }
+
     public Piece(int row, int col, boolean isWhite) {
         this.row = row;
         this.col = col;

@@ -5,7 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f7ad1d79-996c-4f1a-adfc-376279386e63" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/chessgame/movement/Move.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/chessgame/ui/Input.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/chessgame/ChessApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chessgame/ChessApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chessgame/logic/Bishop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chessgame/logic/Bishop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chessgame/logic/Pawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chessgame/logic/Pawn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chessgame/logic/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chessgame/logic/Piece.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/chessgame/ui/Chessboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chessgame/ui/Chessboard.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -93,7 +99,7 @@
       <option name="presentableId" value="Default" />
       <updated>1695299989447</updated>
       <workItem from="1695300000583" duration="2016000" />
-      <workItem from="1695302322512" duration="15801000" />
+      <workItem from="1695302322512" duration="30202000" />
     </task>
     <servers />
   </component>
