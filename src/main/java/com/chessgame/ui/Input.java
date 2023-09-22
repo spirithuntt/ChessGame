@@ -72,3 +72,8 @@ public class Input {
             double pieceSize = chessboard.getSquareSize();
             double offsetX = mouseX - pieceSize / 2;
             double offsetY = mouseY - pieceSize / 2;
+            dPieceView.setLayoutX(offsetX);
+            dPieceView.setLayoutY(offsetY);
+        }
+    }
+}
