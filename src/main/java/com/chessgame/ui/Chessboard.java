@@ -1,6 +1,7 @@
 package com.chessgame.ui;
 
 import com.chessgame.logic.*;
+import com.chessgame.movement.Move;
 import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -8,18 +9,27 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.collections.ObservableList;
+import com.chessgame.logic.Piece;
 
 import java.net.URL;
 import java.util.ArrayList;
 
+// This class is used to draw the chessboard and put the pieces on it
 public class Chessboard extends GridPane {
 
     private double squareSize;
-    ArrayList<Piece> piecesList = new ArrayList<>();
+    private ArrayList<Piece> piecesList = new ArrayList<>();
+    private ArrayList<Move> validMoves = new ArrayList<>();
+
+    private ArrayList<Rectangle> highlights = new ArrayList<>();
+
 
     //getter
     public double getSquareSize() {
         return squareSize;
+    }
+    public ArrayList<Piece> getPiecesList() {
+        return piecesList;
     }
 
     public Chessboard(double squareSize) {
@@ -37,6 +47,18 @@ public class Chessboard extends GridPane {
         }
         return null;
     }
+
+    public void updateValidMoves() {
+        if (validMoves.isEmpty()) {
+            validMoves.clear();
+            for (Piece piece : piecesList) {
+                ArrayList<Move> moves = piece.validMoves(this);
+                validMoves.addAll(moves);
+            }
+        }
+        }
+
+
 
     public void updatePieceView(int startCol, int startRow, int endCol, int endRow) {
         ImageView pieceView = getPieceView(startCol, startRow);
@@ -190,7 +212,6 @@ public class Chessboard extends GridPane {
     }
 
 
-    //retrieve a piece object from a list of pieces
     public Piece getPiece(int col, int row){
         for (Piece piece : piecesList){
             if(piece.getCol() == col && piece.getRow() == row) {
@@ -227,18 +248,45 @@ public class Chessboard extends GridPane {
         try {
 
             URL url = ClassLoader.getSystemClassLoader().getResource(pieceName);
-             pieceIcon = new Image(url.openStream());
+            if(url != null) {
+                pieceIcon = new Image(url.openStream());
+            }
+            else {
+                System.out.println("error piece img not found");
+            }
 
         } catch (Exception e) {
             System.out.println("Error loading piece icon " + e.getMessage());
         }
 
+        if (pieceIcon != null) {
+            ImageView pieceView = new ImageView(pieceIcon);
 
-        ImageView pieceView = new ImageView(pieceIcon);
+            pieceView.setFitWidth(squareSize);
+            pieceView.setFitHeight(squareSize);
 
-        pieceView.setFitWidth(squareSize);
-        pieceView.setFitHeight(squareSize);
+            add(pieceView, col, row);
+        }
+    }
+    public void highlightMoves(ArrayList<Move> moves) {
+        for (Move m : moves) {
+            int r = m.getNewRow();
+            int c = m.getNewCol();
 
-        add(pieceView, col, row);
+            Rectangle h = new Rectangle();
+            h.setWidth(squareSize);
+            h.setHeight(squareSize);
+            h.setFill(Color.color(0, 1, 0, 0.5));
+
+            highlights.add(h);
+            add(h, c, r);
+        }
+    }
+
+    public void removeHighlight() {
+        for (Rectangle h : highlights) {
+            getChildren().remove(h);
+        }
+        highlights.clear();
     }
 }

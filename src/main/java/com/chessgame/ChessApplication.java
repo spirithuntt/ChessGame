@@ -1,9 +1,7 @@
 package com.chessgame;
 
-import com.chessgame.logic.*;
 import com.chessgame.ui.Chessboard;
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.scene.layout.StackPane;
@@ -14,7 +12,6 @@ import java.io.IOException;
 public class ChessApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        //white pieces
         //pawns
         Chessboard chessboard = new Chessboard(50.5);
         StackPane gamePane = new StackPane(chessboard);

@@ -1,5 +1,10 @@
 package com.chessgame.logic;
 
+import com.chessgame.movement.Move;
+import com.chessgame.ui.Chessboard;
+
+import java.util.ArrayList;
+
 public class Knight extends Pawn{
 
     public Knight(int row, int col, boolean isWhite){
@@ -7,8 +12,12 @@ public class Knight extends Pawn{
     }
 
     @Override
-    public  boolean isValidMove(int row, int col)
+    public  boolean isValidMove(int nRow, int nCol)
     {
         return false;
+    }
+    @Override
+    public ArrayList<Move> validMoves(Chessboard chessboard){
+        return null;
     }
 }

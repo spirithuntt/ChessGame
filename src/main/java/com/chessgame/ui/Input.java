@@ -1,9 +1,13 @@
 package com.chessgame.ui;
 
 import com.chessgame.logic.Piece;
+import com.chessgame.movement.Move;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
+import java.util.ArrayList;
+
+// This class is used to handle the click and drag event of the chess pieces
 public class Input {
     private int startCol;
     private int startRow;
@@ -19,6 +23,7 @@ public class Input {
     }
 
     private void mousePressed(MouseEvent event) {
+        //call the
         double mouseX = event.getX();
         double mouseY = event.getY();
         //(int) is casting to int type
@@ -31,7 +36,14 @@ public class Input {
             startCol = col;
             startRow = row;
             isDragging = true;
+
+            chessboard.updateValidMoves();
+
+            ArrayList<Move> validMoves = PieceClicked.validMoves(chessboard);
+            chessboard.highlightMoves(validMoves);
+            System.out.println("wa lmoves a sahbi " + validMoves.size());
         }
+
     }
 
     private void mouseReleased(MouseEvent event) {
@@ -54,11 +66,9 @@ public class Input {
                 dPieceView.setLayoutX(startCol * chessboard.getSquareSize());
                 dPieceView.setLayoutY(startRow * chessboard.getSquareSize());
             }
-            System.out.println(chessboard.getSquareSize());
-            System.out.println(startCol);
-            System.out.println(startCol * chessboard.getSquareSize());
 
             isDragging = false;
+            chessboard.removeHighlight();
         }
     }
 

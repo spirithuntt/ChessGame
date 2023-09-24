@@ -1,5 +1,9 @@
 package com.chessgame.logic;
 
+import com.chessgame.movement.Move;
+import com.chessgame.ui.Chessboard;
+import java.util.ArrayList;
+
 public abstract class Piece {
     private int row;
     private int col;
@@ -18,8 +22,9 @@ public abstract class Piece {
         this.col = col;
         this.isWhite = isWhite;
     }
+    public abstract boolean isValidMove(int nRow, int nCol);
 
-    public abstract boolean isValidMove(int row, int col);
+    public abstract ArrayList<Move> validMoves(Chessboard chessboard);
 
     public int getRow() {
         return row;

@@ -5,14 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f7ad1d79-996c-4f1a-adfc-376279386e63" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/chessgame/movement/Move.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/chessgame/ui/Input.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/chessgame/ChessApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chessgame/ChessApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/chessgame/logic/Bishop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chessgame/logic/Bishop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chessgame/logic/King.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chessgame/logic/King.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chessgame/logic/Knight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chessgame/logic/Knight.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/chessgame/logic/Pawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chessgame/logic/Pawn.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/chessgame/logic/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chessgame/logic/Piece.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chessgame/logic/Queen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chessgame/logic/Queen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chessgame/movement/Move.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chessgame/movement/Move.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/chessgame/ui/Chessboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chessgame/ui/Chessboard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chessgame/ui/Input.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chessgame/ui/Input.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,12 +43,13 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "full.screen.before.presentation.mode": "true",
     "last_opened_file_path": "/Users/macbookpro/Desktop/ChessGame/src/main/java/com/chessgame/resources",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Modules",
+    "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "vue.rearranger.settings.migration": "true"
