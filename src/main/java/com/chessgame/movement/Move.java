@@ -11,11 +11,8 @@ public class Move {
     int newRow;
     int newCol;
     Piece piece;
+
     Piece capturedPiece;
-
-    public Move(int row, int col, int newCol, int col1) {
-    }
-
 
     //getters
     public int getOldRow() {
@@ -34,12 +31,20 @@ public class Move {
         return newCol;
     }
 
-    public Move(Chessboard Chessboard, Piece piece, int newCol, int newRow) {
+    public Piece getPiece() {
+        return piece;
+    }
+
+    public Piece getCapturedPiece() {
+        return capturedPiece;
+    }
+
+    public Move(Piece piece, int newCol, int newRow, Piece capturedPiece) {
         this.oldRow = piece.getRow();
         this.oldCol = piece.getCol();
         this.newRow = newRow;
         this.newCol = newCol;
         this.piece = piece;
-        this.capturedPiece = Chessboard.getPiece(newRow, newCol);
+        this.capturedPiece = capturedPiece;
     }
 }

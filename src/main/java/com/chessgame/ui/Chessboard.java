@@ -36,6 +36,7 @@ public class Chessboard extends GridPane {
         this.squareSize = squareSize;
         drawBoard();
         putPieces();
+
     }
     public ImageView getPieceView(int col, int row) {
         for (Node node : getChildren()) {
@@ -59,7 +60,6 @@ public class Chessboard extends GridPane {
         }
 
 
-
     public void updatePieceView(int startCol, int startRow, int endCol, int endRow) {
         ImageView pieceView = getPieceView(startCol, startRow);
         if (pieceView != null) {
@@ -79,6 +79,25 @@ public class Chessboard extends GridPane {
                 }
             }
         }
+    }
+
+    public void capture(Move move){
+        Piece capturedPiece = move.getCapturedPiece();
+        if(capturedPiece != null){
+            piecesList.remove(capturedPiece);
+            clearPiece(capturedPiece.getCol(), capturedPiece.getRow());
+            // set the piece to the new position
+            move.getPiece().setRow(move.getNewRow());
+            move.getPiece().setCol(move.getNewCol());
+            updatePieceView(move.getOldCol(), move.getOldRow(), move.getNewCol(), move.getNewRow());
+        }
+    }
+
+    public boolean sameTeam(Piece p1, Piece p2){
+        if(p1 == null || p2 == null){
+            return false;
+        }
+        return p1.isWhite() == p2.isWhite();
     }
 
 
