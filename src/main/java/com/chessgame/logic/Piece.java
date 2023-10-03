@@ -13,6 +13,15 @@ public abstract class Piece {
         this.row = row;
     }
 
+    @Override
+    public String toString() {
+        return "Piece{" +
+                "row=" + row +
+                ", col=" + col +
+                ", isWhite=" + isWhite +
+                '}';
+    }
+
     public void setCol(int col) {
         this.col = col;
     }

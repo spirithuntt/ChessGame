@@ -3,6 +3,7 @@ package com.chessgame.logic;
 import com.chessgame.movement.Move;
 import com.chessgame.ui.Chessboard;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Rook extends Piece{
 
@@ -14,11 +15,10 @@ public class Rook extends Piece{
         @Override
         public boolean isValidMove(int nRow, int nCol)
         {
-            return false;
+            return true;
         }
 
         @Override
         public ArrayList<Move> validMoves(Chessboard chessboard){
-            return null;
         }
 }

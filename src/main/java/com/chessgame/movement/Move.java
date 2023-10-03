@@ -1,5 +1,6 @@
 package com.chessgame.movement;
 
+import com.chessgame.logic.Pawn;
 import com.chessgame.logic.Piece;
 import com.chessgame.ui.Chessboard;
 
@@ -13,6 +14,7 @@ public class Move {
     Piece piece;
 
     Piece capturedPiece;
+
 
     //getters
     public int getOldRow() {
@@ -39,12 +41,16 @@ public class Move {
         return capturedPiece;
     }
 
+    //constructor
     public Move(Piece piece, int newCol, int newRow, Piece capturedPiece) {
-        this.oldRow = piece.getRow();
-        this.oldCol = piece.getCol();
-        this.newRow = newRow;
-        this.newCol = newCol;
         this.piece = piece;
+        this.newCol = newCol;
+        this.newRow = newRow;
         this.capturedPiece = capturedPiece;
+        if(piece != null){
+            this.oldCol = piece.getCol();
+            this.oldRow = piece.getRow();
+        }
+
     }
 }

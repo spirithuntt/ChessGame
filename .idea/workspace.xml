@@ -6,6 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="f7ad1d79-996c-4f1a-adfc-376279386e63" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chessgame/logic/King.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chessgame/logic/King.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chessgame/logic/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chessgame/logic/Piece.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chessgame/logic/Rook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chessgame/logic/Rook.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/chessgame/movement/Move.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chessgame/movement/Move.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/chessgame/ui/Chessboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chessgame/ui/Chessboard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/chessgame/ui/Input.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chessgame/ui/Input.java" afterDir="false" />
@@ -45,7 +48,7 @@
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.editor.code.editing",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -98,11 +101,23 @@
       <updated>1695299989447</updated>
       <workItem from="1695300000583" duration="2016000" />
       <workItem from="1695302322512" duration="30202000" />
+      <workItem from="1696067421890" duration="20927000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/chessgame/logic/Pawn.java</url>
+          <line>11</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

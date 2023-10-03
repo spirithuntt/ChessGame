@@ -19,9 +19,20 @@ public class Chessboard extends GridPane {
 
     private double squareSize;
     private ArrayList<Piece> piecesList = new ArrayList<>();
+
     private ArrayList<Move> validMoves = new ArrayList<>();
 
     private ArrayList<Rectangle> highlights = new ArrayList<>();
+
+    @Override
+    public String toString() {
+        return "Chessboard{" +
+                "squareSize=" + squareSize +
+                ", piecesList=" + piecesList +
+                ", validMoves=" + validMoves +
+                ", highlights=" + highlights +
+                '}';
+    }
 
 
     //getter
@@ -291,7 +302,7 @@ public class Chessboard extends GridPane {
         for (Move m : moves) {
             int r = m.getNewRow();
             int c = m.getNewCol();
-
+            System.out.println("highlighting " + r + " " + c);
             Rectangle h = new Rectangle();
             h.setWidth(squareSize);
             h.setHeight(squareSize);

@@ -36,12 +36,11 @@ public class Input {
             startRow = row;
             isDragging = true;
 
-            chessboard.updateValidMoves();
 
-            ArrayList<Move> validMoves = PieceClicked.validMoves(chessboard);
-            chessboard.highlightMoves(validMoves);
-            System.out.println("wa lmoves a sahbi " + validMoves.size());
+            ArrayList<Move> moves = PieceClicked.validMoves(chessboard);
+                chessboard.highlightMoves(moves);
         }
+        System.out.println("test valid moves");
 
     }
 
