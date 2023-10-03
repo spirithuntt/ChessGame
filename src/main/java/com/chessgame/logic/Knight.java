@@ -4,6 +4,7 @@ import com.chessgame.movement.Move;
 import com.chessgame.ui.Chessboard;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Knight extends Pawn{
 
@@ -14,10 +15,28 @@ public class Knight extends Pawn{
     @Override
     public  boolean isValidMove(int nRow, int nCol)
     {
-        return false;
+        return true;
     }
     @Override
     public ArrayList<Move> validMoves(Chessboard chessboard){
-        return null;
+        ArrayList<Move> validMoves = new ArrayList<>();
+        int x = getCol();
+        int y = getRow();
+
+        int [][] moves = {{2+x, y+1}, {x+1 , y+2}, {x-1, y+2}, {x-2, y+1}, {x-1, y-2}, {x+1, y+2}, {x-2, y+1}, {x+1, y-2}, {x+2, y-1}, {x-2, y-1}};
+
+        for (int[] move : moves) {
+            if(move[0] >= 0 && move[0] < 8 && move[1] >= 0 && move[1] < 8){
+                if(chessboard.getPiece(move[0] , move[1]) == null){
+                    validMoves.add(new Move(chessboard.getPiece(move[0],move[1]), move[0],move[1], null));
+                }
+                else
+                if(chessboard.getPiece(move[0] , move[1]).isWhite() != this.isWhite()){
+                    validMoves.add(new Move(this,move[0],move[1],chessboard.getPiece(move[0],move[1])));
+                }
+
+            }
+        }
+        return validMoves;
     }
 }

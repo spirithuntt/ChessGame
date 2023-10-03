@@ -29,7 +29,7 @@ public class King extends Piece{
             System.out.println(Arrays.toString(moves[i]));
         }
 
-        for(int []move : moves){
+        for(int[] move : moves){
             if(move[0] >= 0 && move[0] < 8 && move[1] >= 0 && move[1] < 8){
                 if(chessboard.getPiece(move[0] , move[1]) == null){
                     validMoves.add(new Move(chessboard.getPiece(move[0],move[1]), move[0],move[1], null));

@@ -20,6 +20,40 @@ public class Bishop extends Piece{
 
     @Override
     public ArrayList<Move> validMoves(Chessboard chessboard){
-        return null;
+        ArrayList<Move> validMoves = new ArrayList<>();
+        int x = getCol();
+        int y = getRow();
+
+        int[][] moves = {{x+1, y-1}, {x-1, y-1}, {x+1, y+1}, {x-1, y-1}, {x-1, y+1}};
+
+        for (int[] move : moves) {
+            int dx = move[0];
+            int dy = move[1];
+            System.out.println("1-----------");
+            System.out.println("dx : " + dx);
+            System.out.println("dy : " + dy);
+
+            while (dx >= 0 && dx < 8 && dy >= 0 && dy < 8) {
+                if (chessboard.getPiece(dx, dy) == null) {
+                    validMoves.add(new Move(chessboard.getPiece(dx, dy), dx, dy, null));
+                } else if (chessboard.getPiece(dx, dy).isWhite() != this.isWhite()) {
+                    validMoves.add(new Move(this, dx, dy, chessboard.getPiece(dx, dy)));
+                    break;
+                } else {
+                    break;
+                }
+                System.out.println();
+                dx += move[0] - x;
+                dy += move[1] - y;
+                System.out.println("2-----------");
+                System.out.println("dx : " + dx);
+                System.out.println("dy : " + dy);
+            }
+            System.out.println("3-----------");
+            System.out.println("dx : " + dx);
+            System.out.println("dy : " + dy);
+        }
+
+        return validMoves;
     }
 }
