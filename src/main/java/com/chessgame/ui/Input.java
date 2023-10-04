@@ -56,7 +56,7 @@ public class Input {
             Piece draggedPiece = chessboard.getPiece(startCol, startRow);
             Piece capturedPiece = chessboard.getPiece(endCol, endRow);
 
-            if (draggedPiece.isValidMove(endRow, endCol)) {
+            if (draggedPiece.isValidMove(endRow, endCol, draggedPiece.validMoves(chessboard))) {
                 //if there is no piece in the end position
                 if(capturedPiece == null) {
                     draggedPiece.setRow(endRow);

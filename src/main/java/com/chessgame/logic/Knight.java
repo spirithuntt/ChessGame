@@ -13,9 +13,16 @@ public class Knight extends Pawn{
     }
 
     @Override
-    public  boolean isValidMove(int nRow, int nCol)
+    public boolean isValidMove(int nRow, int nCol, ArrayList<Move> validMoves)
     {
-        return true;
+        int x = nRow;
+        int y = nCol;
+        for (Move move : validMoves){
+            if (move.getNewRow() == x && move.getNewCol() == y){
+                return true;
+            }
+        }
+        return false;
     }
     @Override
     public ArrayList<Move> validMoves(Chessboard chessboard){

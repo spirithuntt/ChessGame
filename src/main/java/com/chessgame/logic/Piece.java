@@ -31,7 +31,7 @@ public abstract class Piece {
         this.col = col;
         this.isWhite = isWhite;
     }
-    public abstract boolean isValidMove(int nRow, int nCol);
+    public abstract boolean isValidMove(int nRow, int nCol, ArrayList<Move> validMoves);
 
     public abstract ArrayList<Move> validMoves(Chessboard chessboard);
 

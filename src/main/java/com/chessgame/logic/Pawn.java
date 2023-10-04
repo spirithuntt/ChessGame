@@ -13,7 +13,7 @@ public class Pawn extends Piece{
     }
 
     @Override
-    public boolean isValidMove(int row, int col) {
+    public boolean isValidMove(int row, int col, ArrayList<Move> validMoves){
         return true;
     }
 

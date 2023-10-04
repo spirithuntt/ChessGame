@@ -16,6 +16,7 @@ public class Move {
     Piece capturedPiece;
 
 
+
     //getters
     public int getOldRow() {
         return oldRow;

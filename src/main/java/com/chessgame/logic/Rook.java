@@ -12,8 +12,15 @@ public class Rook extends Piece {
     }
 
     @Override
-    public boolean isValidMove(int nRow, int nCol) {
-        return true;
+    public boolean isValidMove(int nRow, int nCol, ArrayList<Move> validMoves) {
+        int x = nRow;
+        int y = nCol;
+        for (Move move : validMoves){
+            if (move.getNewRow() == x && move.getNewCol() == y){
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override

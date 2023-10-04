@@ -13,9 +13,15 @@ public class King extends Piece{
     }
 
     @Override
-    public boolean isValidMove(int nRow, int nCol) {
-        System.out.println("you can move it ");
-        return true;
+    public boolean isValidMove(int nRow, int nCol, ArrayList<Move> validMoves) {
+        int x = nRow;
+        int y = nCol;
+        for (Move move : validMoves){
+            if (move.getNewRow() == x && move.getNewCol() == y){
+                return true;
+            }
+        }
+        return false;
     }
     @Override
     public ArrayList<Move> validMoves(Chessboard chessboard){
