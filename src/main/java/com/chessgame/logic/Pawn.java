@@ -27,14 +27,16 @@ public class Pawn extends Piece {
         int d = getTheColor();
 
         if (col == getCol() && row == getRow() + d) {
+            isFirstMove = false;
             return true;
         }
-        if (isFirstMove && col == getCol() && row == getRow() + 2 * d) {
+        if (isFirstMove && ((col == getCol() && row == getRow() + 2 * d) || (col == getCol() && row == getRow() + d))) {
             System.out.println(isFirstMove);
             isFirstMove = false;
             return true;
         }
-        if ((col - getCol() == 1 || col - getCol() == -1) && (row - getRow() == d)) {
+        //capture
+        if((col - getCol() == 1 || col - getCol() == -1) && (row - getRow() == d)) {
             return true;
         }
 
@@ -58,11 +60,10 @@ public class Pawn extends Piece {
         }
         //2 steps
         if (isFirstMove) {
-            int twoStepsX = x;
-            int twoStepsY = y + 2 * d;
-            //if 1st step is empty and second step is also empty
-            if (twoStepsX >= 0 && twoStepsX < 8 && nY >= 0 && nY < 8 && chessboard.getPiece(twoStepsX, twoStepsY) == null && chessboard.getPiece(nX, nY) == null) {
-                validMoves.add(new Move(chessboard.getPiece(twoStepsX, twoStepsY), twoStepsX, twoStepsY, null));
+            nX = x;
+            nY = y + 2 * d;
+            if (nX >= 0 && nX < 8 && nY >= 0 && nY < 8 && chessboard.getPiece(nX, nY) == null) {
+                validMoves.add(new Move(chessboard.getPiece(nX, nY), nX, nY, null));
             }
         }
         //capture
