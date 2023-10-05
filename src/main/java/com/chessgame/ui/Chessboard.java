@@ -93,11 +93,16 @@ public class Chessboard extends GridPane {
     }
 
     public void capture(Move move){
+        //CHECK THE TYPE OF THE CAPTURED PIECE IF ITS A KING CLASS
+        //instanceof in Java is used to check if the specified object is an instance of a class, subclass, or interface
+        if(move.getCapturedPiece() instanceof King){
+            System.out.println("game over hh");
+            System.exit(0);
+        }
         Piece capturedPiece = move.getCapturedPiece();
         if(capturedPiece != null){
             piecesList.remove(capturedPiece);
             clearPiece(capturedPiece.getCol(), capturedPiece.getRow());
-            // set the piece to the new position
             move.getPiece().setRow(move.getNewRow());
             move.getPiece().setCol(move.getNewCol());
             updatePieceView(move.getOldCol(), move.getOldRow(), move.getNewCol(), move.getNewRow());
