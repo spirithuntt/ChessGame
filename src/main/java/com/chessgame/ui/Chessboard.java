@@ -59,18 +59,7 @@ public class Chessboard extends GridPane {
         }
         return null;
     }
-
-    public void updateValidMoves() {
-        if (validMoves.isEmpty()) {
-            validMoves.clear();
-            for (Piece piece : piecesList) {
-                ArrayList<Move> moves = piece.validMoves(this);
-                validMoves.addAll(moves);
-            }
-        }
-        }
-
-
+    
     public void updatePieceView(int startCol, int startRow, int endCol, int endRow) {
         ImageView pieceView = getPieceView(startCol, startRow);
         if (pieceView != null) {
