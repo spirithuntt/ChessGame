@@ -7,7 +7,6 @@ import javafx.scene.input.MouseEvent;
 
 import java.util.ArrayList;
 
-// This class is used to handle the click and drag event of the chess pieces
 public class Input {
     private int startCol;
     private int startRow;
@@ -22,23 +21,22 @@ public class Input {
         chessboard.setOnMouseDragged(event -> mouseDragged(event));
     }
     private void mousePressed(MouseEvent event) {
-        //call the
-        double mouseX = event.getX();
-        double mouseY = event.getY();
-        //(int) is casting to int type
-        int col = (int) (mouseX / chessboard.getSquareSize());
-        int row = (int) (mouseY / chessboard.getSquareSize());
+        //get the square size and cast it to int
+        //casting is converting one data type to another
+        double x = event.getX();
+        double y = event.getY();
+        int col = (int) (x / chessboard.getSquareSize());
+        int row = (int) (y / chessboard.getSquareSize());
 
-        Piece PieceClicked = chessboard.getPiece(col, row);
+        Piece piece = chessboard.getPiece(col, row);
 
-        if (PieceClicked != null) {
+        if (piece != null) {
             startCol = col;
             startRow = row;
             isDragging = true;
 
-
-            ArrayList<Move> moves = PieceClicked.validMoves(chessboard);
-                chessboard.highlightMoves(moves);
+            ArrayList<Move> moves = piece.validMoves(chessboard);
+            chessboard.highlightMoves(moves);
         }
         System.out.println("test valid moves");
 
@@ -46,53 +44,46 @@ public class Input {
 
     private void mouseReleased(MouseEvent event) {
         if (isDragging) {
-            double mouseX = event.getX();
-            double mouseY = event.getY();
-            //Casting to int type
-            //get square size from chessboard to get the exact position of the piece
-            int endCol = (int) (mouseX / chessboard.getSquareSize());
-            int endRow = (int) (mouseY / chessboard.getSquareSize());
+            double x = event.getX();
+            double y = event.getY();
+            int endCol = (int) (x / chessboard.getSquareSize());
+            int endRow = (int) (y / chessboard.getSquareSize());
 
-            Piece draggedPiece = chessboard.getPiece(startCol, startRow);
-            Piece capturedPiece = chessboard.getPiece(endCol, endRow);
+            //dragged and captured
+            Piece dp = chessboard.getPiece(startCol, startRow);
+            Piece cp = chessboard.getPiece(endCol, endRow);
 
-            if (draggedPiece.isValidMove(endRow, endCol, draggedPiece.validMoves(chessboard))) {
-                //if there is no piece in the end position
-                if(capturedPiece == null) {
-                    draggedPiece.setRow(endRow);
-                    draggedPiece.setCol(endCol);
+            if (dp.isValidMove(endRow, endCol, dp.validMoves(chessboard))) {
+                if (cp == null) {
+                    dp.setRow(endRow);
+                    dp.setCol(endCol);
                     chessboard.updatePieceView(startCol, startRow, endCol, endRow);
-                }
-                else{
-                    //else there is a piece in the capturedPiece
-                    if(!chessboard.sameTeam(draggedPiece, capturedPiece)){
-                        chessboard.capture(new Move(draggedPiece, endCol, endRow, capturedPiece));
-
+                } else {
+                    if (!chessboard.sameTeam(dp, cp)) {
+                        chessboard.capture(new Move(dp, endCol, endRow, cp));
                     }
                 }
             } else {
-                ImageView dPieceView = chessboard.getPieceView(startCol, startRow);
-                dPieceView.setLayoutX(startCol * chessboard.getSquareSize());
-                dPieceView.setLayoutY(startRow * chessboard.getSquareSize());
+                ImageView pieceView = chessboard.getPieceView(startCol, startRow);
+                pieceView.setLayoutX(startCol * chessboard.getSquareSize());
+                pieceView.setLayoutY(startRow * chessboard.getSquareSize());
             }
 
             isDragging = false;
             chessboard.removeHighlight();
         }
+
     }
 
     private void mouseDragged(MouseEvent event) {
         if (isDragging) {
-            double mouseX = event.getX();
-            double mouseY = event.getY();
-
-            ImageView dPieceView = chessboard.getPieceView(startCol, startRow);
-
-            double pieceSize = chessboard.getSquareSize();
-            double offsetX = mouseX - pieceSize / 2;
-            double offsetY = mouseY - pieceSize / 2;
-            dPieceView.setLayoutX(offsetX);
-            dPieceView.setLayoutY(offsetY);
+            double x = event.getX();
+            double y = event.getY();
+            ImageView pieceView = chessboard.getPieceView(startCol, startRow);
+            double size = chessboard.getSquareSize();
+            double halfS = size / 2;
+            pieceView.setLayoutX(x - halfS);
+            pieceView.setLayoutY(y - halfS);
         }
     }
 }
