@@ -52,6 +52,5 @@ public class Move {
             this.oldCol = piece.getCol();
             this.oldRow = piece.getRow();
         }
-
     }
 }
