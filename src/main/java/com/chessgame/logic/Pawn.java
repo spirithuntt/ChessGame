@@ -6,13 +6,19 @@ import java.util.ArrayList;
 import com.chessgame.movement.Move;
 import com.chessgame.ui.Chessboard;
 import java.util.ArrayList;
+import java.util.Optional;
+
+import com.chessgame.movement.Move;
 
 public class Pawn extends Piece {
+    private final Chessboard chessboard;
     private boolean isFirstMove = true;
 
-    public Pawn(int row, int col, boolean isWhite) {
+    public Pawn(int row, int col, boolean isWhite, Chessboard chessboard) {
         super(row, col, isWhite);
+        this.chessboard = chessboard;
     }
+
 
     public int getTheColor() {
         if (isWhite()) {
@@ -23,7 +29,7 @@ public class Pawn extends Piece {
     }
 
     @Override
-    public boolean isValidMove(int row, int col, ArrayList<Move> validMoves) {
+    public boolean isValidMove(int row, int col, ArrayList<Move> validMoves){
         int d = getTheColor();
 
         if (col == getCol() && row == getRow() + d) {
@@ -39,9 +45,16 @@ public class Pawn extends Piece {
         if((col - getCol() == 1 || col - getCol() == -1) && (row - getRow() == d)) {
             return true;
         }
+        //promotion
+        if (row == 0 || row == 7) {
+            chessboard.promotePawn(this, row, col);
+            return true;
+        }
 
         return false;
     }
+
+
 
     @Override
     public ArrayList<Move> validMoves(Chessboard chessboard) {

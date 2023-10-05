@@ -118,28 +118,28 @@ public class Chessboard extends GridPane {
     public void putPieces(){
         //white pieces
         //pawns
-        Piece whitePawn1 = new Pawn(1, 0, true);
+        Piece whitePawn1 = new Pawn(1, 0, true, this);
         piecesList.add(whitePawn1);
         addPiece(whitePawn1.getRow(), whitePawn1.getCol(), "pawn", whitePawn1.isWhite());
-        Piece whitePawn2 = new Pawn(1, 1, true);
+        Piece whitePawn2 = new Pawn(1, 1, true, this);
         piecesList.add(whitePawn2);
         addPiece(whitePawn2.getRow(), whitePawn2.getCol(), "pawn", whitePawn2.isWhite());
-        Piece whitePawn3 = new Pawn(1, 2, true);
+        Piece whitePawn3 = new Pawn(1, 2, true, this);
         piecesList.add(whitePawn3);
         addPiece(whitePawn3.getRow(), whitePawn3.getCol(), "pawn", whitePawn3.isWhite());
-        Piece whitePawn4 = new Pawn(1, 3, true);
+        Piece whitePawn4 = new Pawn(1, 3, true, this);
         piecesList.add(whitePawn4);
         addPiece(whitePawn4.getRow(), whitePawn4.getCol(), "pawn", whitePawn4.isWhite());
-        Piece whitePawn5 = new Pawn(1, 4, true);
+        Piece whitePawn5 = new Pawn(1, 4, true, this);
         piecesList.add(whitePawn5);
         addPiece(whitePawn5.getRow(), whitePawn5.getCol(), "pawn", whitePawn5.isWhite());
-        Piece whitePawn6 = new Pawn(1, 5, true);
+        Piece whitePawn6 = new Pawn(1, 5, true, this);
         piecesList.add(whitePawn6);
         addPiece(whitePawn6.getRow(), whitePawn6.getCol(), "pawn", whitePawn6.isWhite());
-        Piece whitePawn7 = new Pawn(1, 6, true);
+        Piece whitePawn7 = new Pawn(1, 6, true, this);
         piecesList.add(whitePawn7);
         addPiece(whitePawn7.getRow(), whitePawn7.getCol(), "pawn", whitePawn7.isWhite());
-        Piece whitePawn8 = new Pawn(1, 7, true);
+        Piece whitePawn8 = new Pawn(1, 7, true, this);
         piecesList.add(whitePawn8);
         addPiece(whitePawn8.getRow(), whitePawn8.getCol(), "pawn", whitePawn8.isWhite());
 
@@ -181,28 +181,28 @@ public class Chessboard extends GridPane {
         //black pieces
 
         //pawns
-        Piece blackPawn1 = new Pawn(6, 0, false);
+        Piece blackPawn1 = new Pawn(6, 0, false, this);
         piecesList.add(blackPawn1);
         addPiece(blackPawn1.getRow(), blackPawn1.getCol(), "pawn", blackPawn1.isWhite());
-        Piece blackPawn2 = new Pawn(6, 1, false);
+        Piece blackPawn2 = new Pawn(6, 1, false, this);
         piecesList.add(blackPawn2);
         addPiece(blackPawn2.getRow(), blackPawn2.getCol(), "pawn", blackPawn2.isWhite());
-        Piece blackPawn3 = new Pawn(6, 2, false);
+        Piece blackPawn3 = new Pawn(6, 2, false, this);
         piecesList.add(blackPawn3);
         addPiece(blackPawn3.getRow(), blackPawn3.getCol(), "pawn", blackPawn3.isWhite());
-        Piece blackPawn4 = new Pawn(6, 3, false);
+        Piece blackPawn4 = new Pawn(6, 3, false, this);
         piecesList.add(blackPawn4);
         addPiece(blackPawn4.getRow(), blackPawn4.getCol(), "pawn", blackPawn4.isWhite());
-        Piece blackPawn5 = new Pawn(6, 4, false);
+        Piece blackPawn5 = new Pawn(6, 4, false, this);
         piecesList.add(blackPawn5);
         addPiece(blackPawn5.getRow(), blackPawn5.getCol(), "pawn", blackPawn5.isWhite());
-        Piece blackPawn6 = new Pawn(6, 5, false);
+        Piece blackPawn6 = new Pawn(6, 5, false, this);
         piecesList.add(blackPawn6);
         addPiece(blackPawn6.getRow(), blackPawn6.getCol(), "pawn", blackPawn6.isWhite());
-        Piece blackPawn7 = new Pawn(6, 6, false);
+        Piece blackPawn7 = new Pawn(6, 6, false, this);
         piecesList.add(blackPawn7);
         addPiece(blackPawn7.getRow(), blackPawn7.getCol(), "pawn", blackPawn7.isWhite());
-        Piece blackPawn8 = new Pawn(6, 7, false);
+        Piece blackPawn8 = new Pawn(6, 7, false, this);
         piecesList.add(blackPawn8);
         addPiece(blackPawn8.getRow(), blackPawn8.getCol(), "pawn", blackPawn8.isWhite());
 
@@ -318,5 +318,14 @@ public class Chessboard extends GridPane {
             getChildren().remove(h);
         }
         highlights.clear();
+    }
+
+    public void promotePawn(Pawn pawn, int row, int col){
+        boolean isWhite = pawn.isWhite();
+        piecesList.remove(pawn);
+        clearPiece(pawn.getCol(), pawn.getRow());
+        Piece queen = new Queen(row, col, isWhite);
+        piecesList.add(queen);
+        addPiece(queen.getRow(), queen.getCol(), "queen", queen.isWhite());
     }
 }

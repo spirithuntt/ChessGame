@@ -9,7 +9,7 @@ import java.util.Arrays;
 public class Knight extends Pawn{
 
     public Knight(int row, int col, boolean isWhite){
-        super(row, col, isWhite);
+        super(row, col, isWhite, null);
     }
 
     @Override

@@ -19,6 +19,7 @@ public class Input {
         chessboard.setOnMousePressed(event -> mousePressed(event));
         chessboard.setOnMouseReleased(event -> mouseReleased(event));
         chessboard.setOnMouseDragged(event -> mouseDragged(event));
+
     }
     private void mousePressed(MouseEvent event) {
         //get the square size and cast it to int
