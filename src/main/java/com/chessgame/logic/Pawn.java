@@ -75,7 +75,7 @@ public class Pawn extends Piece {
         if (isFirstMove) {
             nX = x;
             nY = y + 2 * d;
-            if (nX >= 0 && nX < 8 && nY >= 0 && nY < 8 && chessboard.getPiece(nX, nY) == null) {
+            if (nX >= 0 && nX < 8 && nY >= 0 && nY < 8 && chessboard.getPiece(nX, y + d) == null) {
                 validMoves.add(new Move(chessboard.getPiece(nX, nY), nX, nY, null));
             }
         }
