@@ -28,11 +28,13 @@ public class Pawn extends Piece {
         }
     }
 
+
+
     @Override
     public boolean isValidMove(int row, int col, ArrayList<Move> validMoves){
         int d = getTheColor();
 
-        if (col == getCol() && row == getRow() + d) {
+        if (col == getCol() && row == getRow() + d && chessboard.getPiece(col, row) == null) {
             isFirstMove = false;
             return true;
         }

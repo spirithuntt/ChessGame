@@ -4,7 +4,6 @@ import com.chessgame.logic.Pawn;
 import com.chessgame.logic.Piece;
 import com.chessgame.ui.Chessboard;
 
-// This class is used to store the information of a move
 public class Move {
 
     int oldRow;

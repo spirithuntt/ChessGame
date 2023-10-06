@@ -12,14 +12,14 @@ import java.io.IOException;
 public class ChessApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        //pawns
         Chessboard chessboard = new Chessboard(50.5);
+        // StackPane : lays out its children in a back-to-front stack
         StackPane gamePane = new StackPane(chessboard);
 
-        // Create an Input instance and pass the game pane to it
         Input inputHandler = new Input(chessboard);
         Scene scene = new Scene(gamePane);
         stage.setTitle("Chess Game");
+        //STAGE : the top level JavaFX container
         stage.setScene(scene);
         stage.show();
     }

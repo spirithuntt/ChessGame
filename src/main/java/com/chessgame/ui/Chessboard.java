@@ -14,7 +14,6 @@ import com.chessgame.logic.Piece;
 import java.net.URL;
 import java.util.ArrayList;
 
-// This class is used to draw the chessboard and put the pieces on it
 public class Chessboard extends GridPane {
 
     private double squareSize;
@@ -47,9 +46,9 @@ public class Chessboard extends GridPane {
         this.squareSize = squareSize;
         drawBoard();
         putPieces();
-
     }
     public ImageView getPieceView(int col, int row) {
+        //Node : the base class for all nodes in the scene graph
         for (Node node : getChildren()) {
             if (GridPane.getColumnIndex(node) == col && GridPane.getRowIndex(node) == row) {
                 if (node instanceof ImageView) {
@@ -59,7 +58,7 @@ public class Chessboard extends GridPane {
         }
         return null;
     }
-    
+
     public void updatePieceView(int startCol, int startRow, int endCol, int endRow) {
         ImageView pieceView = getPieceView(startCol, startRow);
         if (pieceView != null) {
@@ -85,7 +84,7 @@ public class Chessboard extends GridPane {
         //CHECK THE TYPE OF THE CAPTURED PIECE IF ITS A KING CLASS
         //instanceof in Java is used to check if the specified object is an instance of a class, subclass, or interface
         if(move.getCapturedPiece() instanceof King){
-            System.out.println("game over hh");
+            System.out.println("---------------------sf baraka 3lik hh---------------------");
             System.exit(0);
         }
         Piece capturedPiece = move.getCapturedPiece();
@@ -104,8 +103,6 @@ public class Chessboard extends GridPane {
         }
         return p1.isWhite() == p2.isWhite();
     }
-
-
 
 
     //put pieces on the board
@@ -292,8 +289,8 @@ public class Chessboard extends GridPane {
             add(pieceView, col, row);
         }
     }
-    public void highlightMoves(ArrayList<Move> moves) {
-        for (Move m : moves) {
+    public void highlightMoves(ArrayList<Move> validMoves) {
+        for (Move m : validMoves) {
             int r = m.getNewRow();
             int c = m.getNewCol();
             System.out.println("highlighting " + r + " " + c);
@@ -309,6 +306,8 @@ public class Chessboard extends GridPane {
 
     public void removeHighlight() {
         for (Rectangle h : highlights) {
+            //getChildren() : returns an ObservableList of the children in this Parent
+            //get the shapes from the gridpane and remove them
             getChildren().remove(h);
         }
         highlights.clear();
